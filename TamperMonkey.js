@@ -14,8 +14,8 @@
     script.type = 'text/javascript';
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    script.src = location.protocol+'//cdn.jsdelivr.net/gh/kevenvz/grepobot-cracked@1.2/Raw/Autobot-Cracked.js';
-    link.href = location.protocol+'//cdn.jsdelivr.net/gh/kevenvz/grepobot-cracked@1.2/Raw/Autobot.css';
+    script.src = location.protocol+'//cdn.jsdelivr.net/gh/kevenvz/grepobot-cracked@1.3/Raw/Autobot-Cracked.js';
+    link.href = location.protocol+'//cdn.jsdelivr.net/gh/kevenvz/grepobot-cracked@1.3/Raw/Autobot.css';
     head.appendChild(script);
     head.appendChild(link);
     head.setAttribute('xhttps', 1);
