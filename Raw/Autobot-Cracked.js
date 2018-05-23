@@ -667,23 +667,3 @@ var Autobot = {
         }
     }
 };
-(function () {
-        String['prototype']['capitalize'] = function () {
-            return this['charAt'](0)['toUpperCase']() + this['slice'](1)
-        };
-        $['fn']['serializeObject'] = function () {
-            var _0x88b7x41 = {};
-            var _0x88b7x42 = this['serializeArray']();
-            $['each'](_0x88b7x42, function () {
-                if (_0x88b7x41[this['name']] !== undefined) {
-                    if (!_0x88b7x41[this['name']]['push']) {
-                        _0x88b7x41[this['name']] = [_0x88b7x41[this['name']]]
-                    };
-                    _0x88b7x41[this['name']]['push'](this['value'] || '')
-                } else {
-                    _0x88b7x41[this['name']] = this['value'] || ''
-                }
-            });
-            return _0x88b7x41
-        };
-        var _0x88b7x43 = setInterval(function () { return true })}
