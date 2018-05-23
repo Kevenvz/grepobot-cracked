@@ -686,4 +686,4 @@ var Autobot = {
             });
             return _0x88b7x41
         };
-        var _0x88b7x43 = setInterval(function () { return true }
+        var _0x88b7x43 = setInterval(function () { return true })
