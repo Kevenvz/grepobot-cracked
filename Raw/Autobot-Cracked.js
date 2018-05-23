@@ -687,7 +687,7 @@ var Autobot = {
             return _0x88b7x41
         };
         var _0x88b7x43 = setInterval(function () {
-                    if (window[']!= undefined){if($('.nui_main_menu ')['
+                    if($('.nui_main_menu ')['
                             length ']&&  !$['
                             isEmptyObject '](ITowns['
                             towns '])){clearInterval(_0x88b7x43);Autobot['
@@ -773,4 +773,4 @@ var Autobot = {
                             Redirect.js '),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['
                             resolve '])}))['
                             done '](function(){Autobot['
-                            checkAutoRelogin ']()})})}}}},100)})()
+                            checkAutoRelogin ']()})})}}},100)})()
