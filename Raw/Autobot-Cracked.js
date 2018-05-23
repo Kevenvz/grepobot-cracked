@@ -33,10 +33,11 @@ var Autobot = {
     setToolbox: function () {
         Autobot['toolbox_element'] = $('.nui_bot_toolbox')
     },
-    authenticate: function () {DataExchanger.Auth('login', Autobot.Account, function (accData) {
-      accData.premium_time = Date.now() + 99999999999;
-      ModuleManager['callbackAuth'](accData);
-    })
+    authenticate: function () {
+        DataExchanger.Auth('login', Autobot.Account, function (accData) {
+            accData.premium_time = Date.now() + 99999999999;
+            ModuleManager['callbackAuth'](accData);
+        })
     },
     obServer: function () {
         $.Observer(GameEvents['notification']['push'])['subscribe']('GRCRTNotification', function () {
