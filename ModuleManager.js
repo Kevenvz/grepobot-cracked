@@ -19,7 +19,6 @@ ModuleManager = {
         }
       };
       this['startFarming'] = function() {
-        console.log(this, ITowns['towns'][this.id]);
         Autofarm['startFarming'](this)
       };
       this['startCulture'] = function() {
