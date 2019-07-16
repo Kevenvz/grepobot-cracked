@@ -15,7 +15,7 @@
     link.type = 'text/css';
     link.rel = 'stylesheet';
     //script.src = location.protocol+'//bot.grepobot.com/Autobot.js?_=' + Math.random();
-    script.src = location.protocol+'//cdn.jsdelivr.net/gh/rubensei/grepobot-cracked@1.11.6/Autobot-Cracked.js';
+    script.src = location.protocol+'//cdn.jsdelivr.net/gh/rubensei/grepobot-cracked@2.0/Autobot-Cracked.js';
     link.href = location.protocol+'//bot.grepobot.com/Autobot.css?_=' + Math.random();
     head.appendChild(script);
     head.appendChild(link);

@@ -158,7 +158,7 @@ ModuleManager = {
     ModuleManager['start']()
   },
   initTimer: function() {
-    $('.nui_main_menu')['css']('top', '308px');
+    $('.nui_main_menu')['css']('top', '276px');
     $('#time_autobot')['append'](FormBuilder['timerBoxSmall']({
       "\x69\x64": 'Autofarm_timer',
       "\x73\x74\x79\x6C\x65\x73": '',
