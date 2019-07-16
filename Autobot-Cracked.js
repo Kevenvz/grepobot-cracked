@@ -36,6 +36,7 @@ var Autobot = {
   },
   authenticate: function () {
     DataExchanger.Auth('login', Autobot.Account, function (accData) {
+      console.log(accData);
       accData.premium_time = Date.now() + 99999999999;
       accData.trial_time = Date.now() + 99999999999;
       ModuleManager['callbackAuth'](accData);
