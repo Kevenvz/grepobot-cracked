@@ -280,7 +280,6 @@ ModuleManager = {
     var _0xa6b2x5 = 0;
     $['each'](ITowns['towns'], function(_0xa6b2x16, _0xa6b2x17) {
       var _0xa6b2x18 = new ModuleManager['models']['Town'];
-      console.log(_0xa6b2x16, _0xa6b2x17, _0xa6b2x18);
       _0xa6b2x18['key'] = _0xa6b2x5;
       _0xa6b2x18['id'] = _0xa6b2x17['id'];
       _0xa6b2x18['name'] = _0xa6b2x17['name'];
@@ -290,6 +289,7 @@ ModuleManager = {
         }
       });
       ModuleManager['playerTowns']['push'](_0xa6b2x18);
+      console.log(_0xa6b2x16, _0xa6b2x17, _0xa6b2x18);
       _0xa6b2x5++
     });
     ModuleManager['playerTowns']['sort'](function(_0xa6b2x1a, _0xa6b2x1b) {
@@ -300,6 +300,7 @@ ModuleManager = {
       };
       return _0xa6b2x1c > _0xa6b2x1d ? 1 : -1
     })
+    console.log(ModuleManager['playerTowns']);
   },
   callbackAuth: function(_0xa6b2x1e) {
     Autobot['isLogged'] = true;
