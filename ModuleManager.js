@@ -316,22 +316,22 @@ ModuleManager = {
                 $['when']($['ajax']({
                     method: 'POST',
                     data: Autobot['Account'],
-                    url: Autobot['domain'] + 'Autofarm.js',
+                    url: Autobot['scriptDomain'] + 'Autofarm.js',
                     dataType: 'script'
                 }), $['ajax']({
                     method: 'POST',
                     data: Autobot['Account'],
-                    url: Autobot['domain'] + 'Autoculture.js',
+                    url: Autobot['scriptDomain'] + 'Autoculture.js',
                     dataType: 'script'
                 }), $['ajax']({
                     method: 'POST',
                     data: Autobot['Account'],
-                    url: Autobot['domain'] + 'Autobuild.js',
+                    url: Autobot['scriptDomain'] + 'Autobuild.js',
                     dataType: 'script'
                 }), $['ajax']({
                     method: 'POST',
                     data: Autobot['Account'],
-                    url: Autobot['domain'] + 'Autoattack.js',
+                    url: Autobot['scriptDomain'] + 'Autoattack.js',
                     dataType: 'script'
                 }), $.Deferred(function(_0xa6b2x1f) {
                     $(_0xa6b2x1f['resolve'])
@@ -353,7 +353,7 @@ ModuleManager = {
                 $['when']($['ajax']({
                     method: 'POST',
                     data: Autobot['Account'],
-                    url: Autobot['domain'] + 'Autofarm.js',
+                    url: Autobot['scriptDomain'] + 'Autofarm.js',
                     dataType: 'script'
                 }), $.Deferred(function(_0xa6b2x1f) {
                     $(_0xa6b2x1f['resolve'])
