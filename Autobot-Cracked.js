@@ -1,7 +1,8 @@
 var Autobot = {
   title: 'Autobot',
   version: '3.1',
-  domain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/rubensei/grepobot-cracked/Raw/',
+  domain: window['location']['protocol'] + '//bot.grepobot.com/',
+  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/rubensei/grepobot-cracked/Raw/',
   botWnd: '',
   botPremWnd: '',
   botEmailWnd: '',
@@ -474,7 +475,7 @@ var Autobot = {
   },
   initAjax: function () {
     $(document)['ajaxComplete'](function (_0x88b7x21, _0x88b7x22, _0x88b7x23) {
-      if (_0x88b7x23['url']['indexOf'](Autobot['domain']) == -1 && _0x88b7x23['url']['indexOf']('/game/') != -1 && _0x88b7x22['readyState'] == 4 && _0x88b7x22['status'] == 200) {
+      if (_0x88b7x23['url']['indexOf'](Autobot['domain']) == -1 && _0x88b7x23['url']['indexOf'](Autobot['scriptDomain']) == -1 && _0x88b7x23['url']['indexOf']('/game/') != -1 && _0x88b7x22['readyState'] == 4 && _0x88b7x22['status'] == 200) {
         var _0x88b7x24 = _0x88b7x23['url']['split']('?');
         var _0x88b7x25 = _0x88b7x24[0]['substr'](6) + '/' + _0x88b7x24[1]['split']('&')[1]['substr'](7);
         if (typeof Autobuild !== 'undefined') {
@@ -694,16 +695,16 @@ var Autobot = {
         clearInterval(_0x88b7x43);
         Autobot['initWindow']();
         Autobot['initMapTownFeature']();
-        $['getScript'](Autobot['domain']+'Evaluate.js',function(){
-          $['when']($['getScript'](Autobot['domain']+'DataExchanger.js'),$['getScript'](Autobot['domain']+'ConsoleLog.js'),$['getScript'](Autobot['domain']+'FormBuilder.js'),$['getScript'](Autobot['domain']+'ModuleManager.js'),$['getScript'](Autobot['domain']+'Assistant.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
+        $['getScript'](Autobot['scriptDomain']+'Evaluate.js',function(){
+          $['when']($['getScript'](Autobot['scriptDomain']+'DataExchanger.js'),$['getScript'](Autobot['scriptDomain']+'ConsoleLog.js'),$['getScript'](Autobot['scriptDomain']+'FormBuilder.js'),$['getScript'](Autobot['scriptDomain']+'ModuleManager.js'),$['getScript'](Autobot['scriptDomain']+'Assistant.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
             Autobot['init']()
           });
         });
       } else {
         if(/grepolis\.com\/start\?nosession/g['test'](window['location']['href'])){
           clearInterval(_0x88b7x43);
-          $['getScript'](Autobot['domain']+'Evaluate.js',function(){
-            $['when']($['getScript'](Autobot['domain']+'DataExchanger.js'),$['getScript'](Autobot['domain']+'Redirect.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
+          $['getScript'](Autobot['scriptDomain']+'Evaluate.js',function(){
+            $['when']($['getScript'](Autobot['scriptDomain']+'DataExchanger.js'),$['getScript'](Autobot['scriptDomain']+'Redirect.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
               Autobot['checkAutoRelogin']()
             });
           });
