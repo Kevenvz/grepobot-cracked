@@ -19,6 +19,7 @@ ModuleManager = {
         }
       };
       this['startFarming'] = function() {
+        console.log(this, ITowns['towns'][this.id]);
         Autofarm['startFarming'](this)
       };
       this['startCulture'] = function() {
@@ -289,7 +290,6 @@ ModuleManager = {
         }
       });
       ModuleManager['playerTowns']['push'](_0xa6b2x18);
-      console.log(_0xa6b2x16, _0xa6b2x17, _0xa6b2x18);
       _0xa6b2x5++
     });
     ModuleManager['playerTowns']['sort'](function(_0xa6b2x1a, _0xa6b2x1b) {
@@ -300,7 +300,6 @@ ModuleManager = {
       };
       return _0xa6b2x1c > _0xa6b2x1d ? 1 : -1
     })
-    console.log(ModuleManager['playerTowns']);
   },
   callbackAuth: function(_0xa6b2x1e) {
     Autobot['isLogged'] = true;
