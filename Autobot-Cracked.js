@@ -140,7 +140,7 @@ var Autobot = {
   },
 
   contentAccount: function () {
-    var _0x88b7x9 = {
+    var accountInfo = {
       "Name:": Game['player_name'],
       "World:": Game['world_id'],
       "Rank:": Game['player_rank'],
@@ -155,7 +155,7 @@ var Autobot = {
     })['append'](function () {
       var _0x88b7xb = 0;
       var _0x88b7xc = $('<tbody/>');
-      $['each'](_0x88b7x9, function (_0x88b7xd, _0x88b7xe) {
+      $['each'](accountInfo, function (_0x88b7xd, _0x88b7xe) {
         _0x88b7xc['append']($('<tr/>', {
           "class": _0x88b7xb % 2 ? 'game_table_even' : 'game_table_odd'
         })['append']($('<td/>', {

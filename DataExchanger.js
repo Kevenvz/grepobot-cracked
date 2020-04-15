@@ -1,6 +1,6 @@
 DataExchanger = {
-    Auth: function (_0xbcf4x1, _0xbcf4x2, _0xbcf4x3) {
-        _0xbcf4x3(_0xbcf4x2);
+    Auth: function (actionPassedIntoRequest, paramCallback, paramFunc) {
+        paramFunc(paramCallback);
     },
 
     default_handler: function (_0xbcf4x3, _0xbcf4x4) {
@@ -72,8 +72,8 @@ DataExchanger = {
         })
     },
 
-    switch_town: function (_0xbcf4xb, _0xbcf4x3) {
-        var _0xbcf4xe = _0xbcf4xb,
+    switch_town: function (param1, param2) {
+        var _0xbcf4xe = param1,
             _0xbcf4xd;
         _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/index?' + $['param']({
             town_id: _0xbcf4xe,
@@ -84,7 +84,7 @@ DataExchanger = {
             url: _0xbcf4xd,
             method: 'GET',
             dataType: 'json',
-            success: DataExchanger['default_handler'](_0xbcf4x3)
+            success: DataExchanger['default_handler'](param2)
         })
     },
 
