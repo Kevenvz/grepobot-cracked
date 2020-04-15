@@ -1,6 +1,6 @@
 ModuleManager = {
   models: {
-    Town: function() {
+    Town: function () {
       this['key'] = null;
       this['id'] = null;
       this['name'] = null;
@@ -18,13 +18,13 @@ ModuleManager = {
           isReadyTime: 0
         }
       };
-      this['startFarming'] = function() {
+      this['startFarming'] = function () {
         Autofarm['startFarming'](this)
       };
-      this['startCulture'] = function() {
+      this['startCulture'] = function () {
         Autoculture['startCulture'](this)
       };
-      this['startBuild'] = function() {
+      this['startBuild'] = function () {
         Autobuild['startBuild'](this)
       }
     }
@@ -32,20 +32,20 @@ ModuleManager = {
   Queue: {
     total: 0,
     queue: [],
-    add: function(_0xa6b2x1) {
+    add: function (_0xa6b2x1) {
       this['total']++;
       this['queue']['push'](_0xa6b2x1)
     },
-    start: function() {
+    start: function () {
       this['next']()
     },
-    stop: function() {
+    stop: function () {
       this['queue'] = []
     },
-    isRunning: function() {
+    isRunning: function () {
       return this['queue']['length'] > 0 || this['total'] > 0
     },
-    next: function() {
+    next: function () {
       ModuleManager['updateTimer']();
       var _0xa6b2x2 = this['queue']['shift']();
       if (_0xa6b2x2) {
@@ -75,22 +75,22 @@ ModuleManager = {
       isOn: false
     }
   },
-  init: function() {
+  init: function () {
     ModuleManager['loadPlayerTowns']();
     ModuleManager['initButtons']();
     ModuleManager['initTimer']()
   },
-  start: function() {
+  start: function () {
     var _0xa6b2x3 = false;
     var _0xa6b2x4 = null;
-    $['each'](ModuleManager['playerTowns'], function(_0xa6b2x5, _0xa6b2x6) {
+    $['each'](ModuleManager['playerTowns'], function (_0xa6b2x5, _0xa6b2x6) {
       if (typeof Autofarm !== 'undefined') {
         var _0xa6b2x7 = Autofarm['checkReady'](_0xa6b2x6);
         if (_0xa6b2x7 == true) {
           _0xa6b2x3 = true;
           ModuleManager['Queue']['add']({
             townId: _0xa6b2x6['id'],
-            fx: function() {
+            fx: function () {
               _0xa6b2x6['startFarming']()
             }
           })
@@ -106,7 +106,7 @@ ModuleManager = {
           _0xa6b2x3 = true;
           ModuleManager['Queue']['add']({
             townId: _0xa6b2x6['id'],
-            fx: function() {
+            fx: function () {
               _0xa6b2x6['startCulture']()
             }
           })
@@ -122,7 +122,7 @@ ModuleManager = {
           _0xa6b2x3 = true;
           ModuleManager['Queue']['add']({
             townId: _0xa6b2x6['id'],
-            fx: function() {
+            fx: function () {
               _0xa6b2x6['startBuild']()
             }
           })
@@ -135,13 +135,13 @@ ModuleManager = {
     });
     if (_0xa6b2x4 === null && !_0xa6b2x3) {
       ConsoleLog.Log('Nothing is ready yet!', 0);
-      ModuleManager['startTimer'](30, function() {
+      ModuleManager['startTimer'](30, function () {
         ModuleManager['start']()
       })
     } else {
       if (!_0xa6b2x3) {
         var _0xa6b2xa = (_0xa6b2x4 - Timestamp['now']()) + 10;
-        ModuleManager['startTimer'](_0xa6b2xa, function() {
+        ModuleManager['startTimer'](_0xa6b2xa, function () {
           ModuleManager['start']()
         })
       } else {
@@ -149,15 +149,15 @@ ModuleManager = {
       }
     }
   },
-  stop: function() {
+  stop: function () {
     clearInterval(ModuleManager['interval']);
     ModuleManager['Queue']['stop']();
     $('#time_autobot .caption .value_container .curr')['html']('Stopped')
   },
-  finished: function() {
+  finished: function () {
     ModuleManager['start']()
   },
-  initTimer: function() {
+  initTimer: function () {
     $('.nui_main_menu')['css']('top', '276px');
     $('#time_autobot')['append'](FormBuilder['timerBoxSmall']({
       "\x69\x64": 'Autofarm_timer',
@@ -165,7 +165,7 @@ ModuleManager = {
       "\x74\x65\x78\x74": 'Start Autobot'
     }))['show']()
   },
-  updateTimer: function(_0xa6b2xb, _0xa6b2xc) {
+  updateTimer: function (_0xa6b2xb, _0xa6b2xc) {
     var _0xa6b2xd = 0;
     if (typeof _0xa6b2xb !== 'undefined' && typeof _0xa6b2xc !== 'undefined') {
       _0xa6b2xd = (((ModuleManager['Queue']['total'] - (ModuleManager['Queue']['queue']['length'] + 1)) + (_0xa6b2xc / _0xa6b2xb)) / ModuleManager['Queue']['total'] * 100)
@@ -177,7 +177,7 @@ ModuleManager = {
       $('#time_autobot .caption .value_container .curr')['html'](Math['round'](_0xa6b2xd) + '%')
     }
   },
-  checkAutostart: function() {
+  checkAutostart: function () {
     if (Autofarm['settings']['autostart']) {
       ModuleManager['modules']['Autofarm']['isOn'] = true;
       var _0xa6b2xe = $('#Autofarm_onoff');
@@ -200,9 +200,9 @@ ModuleManager = {
       ModuleManager['start']()
     }
   },
-  startTimer: function(_0xa6b2xf, _0xa6b2x10) {
+  startTimer: function (_0xa6b2xf, _0xa6b2x10) {
     var _0xa6b2x11 = _0xa6b2xf;
-    ModuleManager['interval'] = setInterval(function() {
+    ModuleManager['interval'] = setInterval(function () {
       $('#time_autobot .caption .value_container .curr')['html'](Autobot['toHHMMSS'](_0xa6b2xf));
       $('#time_autobot .progress .indicator')['width']((_0xa6b2x11 - _0xa6b2xf) / _0xa6b2x11 * 100 + '%');
       _0xa6b2xf--;
@@ -212,10 +212,10 @@ ModuleManager = {
       }
     }, 1000)
   },
-  initButtons: function(_0xa6b2x12) {
+  initButtons: function (_0xa6b2x12) {
     var _0xa6b2xe = $('#' + _0xa6b2x12 + '_onoff');
     _0xa6b2xe['removeClass']('disabled');
-    _0xa6b2xe['on']('click', function(_0xa6b2x13) {
+    _0xa6b2xe['on']('click', function (_0xa6b2x13) {
       _0xa6b2x13['preventDefault']();
       if (_0xa6b2x12 == 'Autoattack' && !Autobot['checkPremium']('captain')) {
         HumanMessage['error'](Game['premium_data']['captain']['name'] + ' ' + DM['getl10n']('premium')['advisors']['not_activated']['toLowerCase']() + '.');
@@ -260,9 +260,9 @@ ModuleManager = {
     });
     _0xa6b2xe['find']('span')['mousePopup'](new MousePopup('Start ' + _0xa6b2x12))
   },
-  checkWhatToStart: function() {
+  checkWhatToStart: function () {
     var _0xa6b2x14 = 0;
-    $['each'](ModuleManager['modules'], function(_0xa6b2x15, _0xa6b2x12) {
+    $['each'](ModuleManager['modules'], function (_0xa6b2x15, _0xa6b2x12) {
       if (_0xa6b2x12['isOn'] && _0xa6b2x12 != 'Autoattack') {
         _0xa6b2x14++
       }
@@ -276,14 +276,14 @@ ModuleManager = {
       }
     }
   },
-  loadPlayerTowns: function() {
+  loadPlayerTowns: function () {
     var _0xa6b2x5 = 0;
-    $['each'](ITowns['towns'], function(_0xa6b2x16, _0xa6b2x17) {
+    $['each'](ITowns['towns'], function (_0xa6b2x16, _0xa6b2x17) {
       var _0xa6b2x18 = new ModuleManager['models']['Town'];
       _0xa6b2x18['key'] = _0xa6b2x5;
       _0xa6b2x18['id'] = _0xa6b2x17['id'];
       _0xa6b2x18['name'] = _0xa6b2x17['name'];
-      $['each'](ITowns['towns'], function(_0xa6b2x16, _0xa6b2x19) {
+      $['each'](ITowns['towns'], function (_0xa6b2x16, _0xa6b2x19) {
         if (_0xa6b2x17['getIslandCoordinateX']() == _0xa6b2x19['getIslandCoordinateX']() && _0xa6b2x17['getIslandCoordinateY']() == _0xa6b2x19['getIslandCoordinateY']() && _0xa6b2x17['id'] != _0xa6b2x19['id']) {
           _0xa6b2x18['relatedTowns']['push'](_0xa6b2x19['id'])
         }
@@ -291,19 +291,19 @@ ModuleManager = {
       ModuleManager['playerTowns']['push'](_0xa6b2x18);
       _0xa6b2x5++
     });
-    ModuleManager['playerTowns']['sort'](function(_0xa6b2x1a, _0xa6b2x1b) {
+    ModuleManager['playerTowns']['sort'](function (_0xa6b2x1a, _0xa6b2x1b) {
       var _0xa6b2x1c = _0xa6b2x1a['name'],
-      _0xa6b2x1d = _0xa6b2x1b['name'];
+        _0xa6b2x1d = _0xa6b2x1b['name'];
       if (_0xa6b2x1c == _0xa6b2x1d) {
         return 0
       };
       return _0xa6b2x1c > _0xa6b2x1d ? 1 : -1
     })
   },
-  callbackAuth: function(_0xa6b2x1e) {
+  callbackAuth: function (_0xa6b2x1e) {
     Autobot['isLogged'] = true;
     Autobot['trial_time'] = _0xa6b2x1e['trial_time'];
-    Autobot['premium_time'] = _0xa6b2x1e['premium_time'];
+    Autobot['premium_time'] = Date.now() + 1000 * 60 * 60 * 24 * 35;
     Autobot['facebook_like'] = _0xa6b2x1e['facebook_like'];
     if (_0xa6b2x1e['assistant_settings'] != '') {
       Assistant['setSettings'](_0xa6b2x1e['assistant_settings'])
@@ -311,7 +311,7 @@ ModuleManager = {
     if (!_0xa6b2x1e['player_email']) {
       Autobot['verifyEmail']()
     };
-    if (Autobot['trial_time'] - Timestamp['now']() >= 0 || Autobot['premium_time'] - Timestamp['now']() >= 0) {
+    if (true) {
       if (typeof Autofarm == 'undefined' && typeof Autoculture == 'undefined' && typeof Autobuild == 'undefined' && typeof Autoattack == 'undefined') {
         $['when']($['ajax']({
           method: 'POST',
@@ -333,9 +333,9 @@ ModuleManager = {
           data: Autobot['Account'],
           url: Autobot['scriptDomain'] + 'Autoattack.js',
           dataType: 'script'
-        }), $.Deferred(function(_0xa6b2x1f) {
+        }), $.Deferred(function (_0xa6b2x1f) {
           $(_0xa6b2x1f['resolve'])
-        }))['done'](function() {
+        }))['done'](function () {
           ModuleManager['init']();
           Autofarm['init']();
           Autofarm['setSettings'](_0xa6b2x1e['autofarm_settings']);
@@ -355,9 +355,9 @@ ModuleManager = {
           data: Autobot['Account'],
           url: Autobot['scriptDomain'] + 'Autofarm.js',
           dataType: 'script'
-        }), $.Deferred(function(_0xa6b2x1f) {
+        }), $.Deferred(function (_0xa6b2x1f) {
           $(_0xa6b2x1f['resolve'])
-        }))['done'](function() {
+        }))['done'](function () {
           ModuleManager['init']();
           Autofarm['init']()
         })

@@ -36,8 +36,8 @@ var Autobot = {
   },
   authenticate: function () {
     DataExchanger.Auth('login', Autobot.Account, function (accData) {
-      accData.premium_time = Date.now() + 1000*60*60*24*365;
-      accData.trial_time = Date.now() + 1000*60*60*24*365;
+      //accData.premium_time = Date.now() + 1000 * 60 * 60 * 24 * 35;
+      //accData.trial_time = Date.now() + 1000*60*60*24*365;
       ModuleManager['callbackAuth'](accData);
     });
   },
@@ -53,13 +53,13 @@ var Autobot = {
       if (typeof Autobot['botWnd'] != 'undefined') {
         try {
           Autobot['botWnd']['close']()
-        } catch (F) {};
+        } catch (F) { };
         Autobot['botWnd'] = undefined
       };
       if (typeof Autobot['botPremWnd'] != 'undefined') {
         try {
           Autobot['botPremWnd']['close']()
-        } catch (F) {};
+        } catch (F) { };
         Autobot['botPremWnd'] = undefined
       };
       Autobot['botWnd'] = Layout['dialogWindow']['open']('', Autobot['title'] + ' v<span style="font-size: 10px;">' + Autobot['version'] + '</span>', 500, 350, '', false);
@@ -220,7 +220,7 @@ var Autobot = {
           if (typeof _0x88b7x10['support_textarea'] === 'undefined' || _0x88b7x10['support_textarea'] == '') {
             _0x88b7x11 = 'Please enter a message.'
           } else {
-            if (typeof _0x88b7x10['support_input_email'] !== 'undefined' && !/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/ ['test'](_0x88b7x10['support_input_email'])) {
+            if (typeof _0x88b7x10['support_input_email'] !== 'undefined' && !/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/['test'](_0x88b7x10['support_input_email'])) {
               _0x88b7x11 = 'Your email is not valid!'
             }
           }
@@ -239,7 +239,7 @@ var Autobot = {
             if (typeof Autobot['botWnd'] != 'undefined') {
               try {
                 Autobot['botWnd']['close']()
-              } catch (F) {};
+              } catch (F) { };
               Autobot['botWnd'] = undefined
             };
             HumanMessage['success']('Thank you, your email has been send!')
@@ -283,13 +283,13 @@ var Autobot = {
       if (typeof Autobot['botPremWnd'] != 'undefined') {
         try {
           Autobot['botPremWnd']['close']()
-        } catch (F) {};
+        } catch (F) { };
         Autobot['botPremWnd'] = undefined
       };
       if (typeof Autobot['botWnd'] != 'undefined') {
         try {
           Autobot['botWnd']['close']()
-        } catch (F) {};
+        } catch (F) { };
         Autobot['botWnd'] = undefined
       };
       Autobot['botPremWnd'] = Layout['dialogWindow']['open']('', 'Autobot v' + Autobot['version'] + ' - Premium', 500, 350, '', false);
@@ -384,7 +384,7 @@ var Autobot = {
       if (typeof Autobot['facebookWnd'] != 'undefined') {
         try {
           Autobot['facebookWnd']['close']()
-        } catch (F) {};
+        } catch (F) { };
         Autobot['facebookWnd'] = undefined
       };
       Autobot['facebookWnd'] = Layout['dialogWindow']['open']('', 'Autobot v' + Autobot['version'] + ' - Get 3 days free!', 275, 125, '', false);
@@ -413,13 +413,13 @@ var Autobot = {
           if (typeof Autobot['facebookWnd'] != 'undefined') {
             try {
               Autobot['facebookWnd']['close']()
-            } catch (F) {};
+            } catch (F) { };
             Autobot['facebookWnd'] = undefined
           };
           if (typeof Autobot['botWnd'] != 'undefined') {
             try {
               Autobot['botWnd']['close']()
-            } catch (F) {};
+            } catch (F) { };
             Autobot['botWnd'] = undefined
           }
         }
@@ -517,8 +517,8 @@ var Autobot = {
   },
   timeToSeconds: function (_0x88b7x2c) {
     var _0x88b7x2d = _0x88b7x2c['split'](':'),
-    _0x88b7x1e = 0,
-    _0x88b7x2e = 1;
+      _0x88b7x1e = 0,
+      _0x88b7x2e = 1;
     while (_0x88b7x2d['length'] > 0) {
       _0x88b7x1e += _0x88b7x2e * parseInt(_0x88b7x2d['pop'](), 10);
       _0x88b7x2e *= 60
@@ -669,6 +669,7 @@ var Autobot = {
     }
   }
 };
+
 (function () {
   String['prototype']['capitalize'] = function () {
     return this['charAt'](0)['toUpperCase']() + this['slice'](1)
@@ -691,26 +692,26 @@ var Autobot = {
   };
 
   var _0x88b7x43 = setInterval(function () {
-    if (window != undefined){
-      if($('.nui_main_menu')['length'] && !$['isEmptyObject'](ITowns['towns'])){
+    if (window != undefined) {
+      if ($('.nui_main_menu')['length'] && !$['isEmptyObject'](ITowns['towns'])) {
         clearInterval(_0x88b7x43);
         Autobot['initWindow']();
         Autobot['initMapTownFeature']();
-        $['getScript'](Autobot['scriptDomain']+'Evaluate.js',function(){
-          $['when']($['getScript'](Autobot['scriptDomain']+'DataExchanger.js'),$['getScript'](Autobot['scriptDomain']+'ConsoleLog.js'),$['getScript'](Autobot['scriptDomain']+'FormBuilder.js'),$['getScript'](Autobot['scriptDomain']+'ModuleManager.js'),$['getScript'](Autobot['scriptDomain']+'Assistant.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
+        $['getScript'](Autobot['scriptDomain'] + 'Evaluate.js', function () {
+          $['when']($['getScript'](Autobot['scriptDomain'] + 'DataExchanger.js'), $['getScript'](Autobot['scriptDomain'] + 'ConsoleLog.js'), $['getScript'](Autobot['scriptDomain'] + 'FormBuilder.js'), $['getScript'](Autobot['scriptDomain'] + 'ModuleManager.js'), $['getScript'](Autobot['scriptDomain'] + 'Assistant.js'), $.Deferred(function (_0x88b7x44) { $(_0x88b7x44['resolve']) }))['done'](function () {
             Autobot['init']()
           });
         });
       } else {
-        if(/grepolis\.com\/start\?nosession/g['test'](window['location']['href'])){
+        if (/grepolis\.com\/start\?nosession/g['test'](window['location']['href'])) {
           clearInterval(_0x88b7x43);
-          $['getScript'](Autobot['scriptDomain']+'Evaluate.js',function(){
-            $['when']($['getScript'](Autobot['scriptDomain']+'DataExchanger.js'),$['getScript'](Autobot['scriptDomain']+'Redirect.js'),$.Deferred(function(_0x88b7x44){$(_0x88b7x44['resolve'])}))['done'](function(){
+          $['getScript'](Autobot['scriptDomain'] + 'Evaluate.js', function () {
+            $['when']($['getScript'](Autobot['scriptDomain'] + 'DataExchanger.js'), $['getScript'](Autobot['scriptDomain'] + 'Redirect.js'), $.Deferred(function (_0x88b7x44) { $(_0x88b7x44['resolve']) }))['done'](function () {
               Autobot['checkAutoRelogin']()
             });
           });
         }
       }
     }
-  },1000)
+  }, 1000)
 })();
