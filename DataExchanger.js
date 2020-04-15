@@ -1,20 +1,6 @@
 DataExchanger = {
     Auth: function (_0xbcf4x1, _0xbcf4x2, _0xbcf4x3) {
         _0xbcf4x3(_0xbcf4x2);
-        /*
-        $['ajax']({
-            method: 'POST',
-            jsonpCallback: _0xbcf4x3,
-            url: Autobot['domain'] + 'auth.json',
-            dataType: 'json',
-            data: $['extend']({
-                action: _0xbcf4x1
-            }, _0xbcf4x2),
-            success: function(_0xbcf4x2) {
-                _0xbcf4x3(_0xbcf4x2)
-            }
-        })
-        */
     },
 
     default_handler: function (_0xbcf4x3, _0xbcf4x4) {
@@ -85,6 +71,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     switch_town: function (_0xbcf4xb, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4xd;
@@ -100,6 +87,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     claim_load: function (_0xbcf4xb, _0xbcf4xf, _0xbcf4x10, _0xbcf4x11, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4x12 = _0xbcf4x11,
@@ -126,6 +114,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     farm_town_overviews: function (_0xbcf4xb, _0xbcf4x3) {
         var _0xbcf4xc = _0xbcf4xb,
             _0xbcf4xd, _0xbcf4x2;
@@ -144,6 +133,7 @@ DataExchanger = {
                 nl_init: true
             })
         };
+
         _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/farm_town_overviews';
         $['ajax']({
             url: _0xbcf4xd,
@@ -153,6 +143,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     claim_loads: function (_0xbcf4xb, _0xbcf4x13, _0xbcf4xf, _0xbcf4x10, _0xbcf4x3) {
         var _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/farm_town_overviews?' + $['param']({
             town_id: Game['townId'],
@@ -178,6 +169,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     building_place: function (_0xbcf4xb, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4xd, _0xbcf4x2;
@@ -199,6 +191,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3, true)
         })
     },
+
     building_main: function (_0xbcf4xb, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4xd, _0xbcf4x2;
@@ -220,6 +213,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     start_celebration: function (_0xbcf4xb, _0xbcf4x14, _0xbcf4x3) {
         var _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/building_place?' + $['param']({
             town_id: _0xbcf4xb,
@@ -242,6 +236,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3, true)
         })
     },
+
     email_validation: function (_0xbcf4x3) {
         var _0xbcf4x2 = {
             town_id: Game['townId'],
@@ -261,6 +256,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3, true)
         })
     },
+
     members_show: function (_0xbcf4x3) {
         var _0xbcf4x2 = {
             town_id: Game['townId'],
@@ -280,6 +276,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     login_to_game_world: function (_0xbcf4x15) {
         $['redirect'](window['location']['protocol'] + '//' + document['domain'] + '/start?' + $['param']({
             action: 'login_to_game_world'
@@ -292,6 +289,7 @@ DataExchanger = {
             password: ''
         })
     },
+
     frontend_bridge: function (_0xbcf4xb, _0xbcf4x16, _0xbcf4x3) {
         var _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/frontend_bridge?' + $['param']({
             town_id: _0xbcf4xb,
@@ -309,6 +307,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     building_barracks: function (_0xbcf4xb, _0xbcf4x16, _0xbcf4x3) {
         var _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/building_barracks?' + $['param']({
             town_id: _0xbcf4xb,
@@ -326,6 +325,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     attack_planner: function (_0xbcf4xb, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4xd, _0xbcf4x2;
@@ -347,6 +347,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     town_info_attack: function (_0xbcf4xb, _0xbcf4x17, _0xbcf4x3) {
         var _0xbcf4xe = _0xbcf4xb,
             _0xbcf4xd, _0xbcf4x2;
@@ -372,6 +373,7 @@ DataExchanger = {
             success: DataExchanger['default_handler'](_0xbcf4x3)
         })
     },
+
     send_units: function (_0xbcf4xb, _0xbcf4x18, _0xbcf4x19, _0xbcf4x1a, _0xbcf4x3) {
         var _0xbcf4xd = window['location']['protocol'] + '//' + document['domain'] + '/game/town_info?' + $['param']({
             town_id: _0xbcf4xb,

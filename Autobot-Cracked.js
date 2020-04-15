@@ -1,6 +1,6 @@
 var Autobot = {
   title: 'Autobot',
-  version: '3.1',
+  version: '4.0',
   domain: window['location']['protocol'] + '//bot.grepobot.com/',
   scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@2.1/',
   botWnd: '',
@@ -523,8 +523,8 @@ var Autobot = {
     }
   },
 
-  randomize: function (_0x88b7x26, _0x88b7x27) {
-    return Math['floor'](Math['random']() * (_0x88b7x27 - _0x88b7x26 + 1)) + _0x88b7x26
+  randomize: function (a, b) {
+    return Math['floor'](Math['random']() * (b - a + 1)) + a
   },
 
   secondsToTime: function (timeInSeconds) {
@@ -561,8 +561,8 @@ var Autobot = {
   },
 
   createNotification: function (_0x88b7x30, _0x88b7x31) {
-    var _0x88b7x32 = (typeof Layout['notify'] == 'undefined') ? new NotificationHandler() : Layout;
-    _0x88b7x32['notify']($('#notification_area>.notification')['length'] + 1, _0x88b7x30, '<span><b>' + 'Autobot' + '</b></span>' + _0x88b7x31 + '<span class=\'small notification_date\'>' + 'Version ' + Autobot['version'] + '</span>')
+    var layoutVar = (typeof Layout['notify'] == 'undefined') ? new NotificationHandler() : Layout;
+    layoutVar['notify']($('#notification_area>.notification')['length'] + 1, _0x88b7x30, '<span><b>' + 'Autobot' + '</b></span>' + _0x88b7x31 + '<span class=\'small notification_date\'>' + 'Version ' + Autobot['version'] + '</span>')
   },
 
   toHHMMSS: function (input) {
@@ -720,10 +720,10 @@ var Autobot = {
     return _0x88b7x41
   };
 
-  var _0x88b7x43 = setInterval(function () {
+  var loadIntervalID = setInterval(function () {
     if (window != undefined) {
       if ($('.nui_main_menu')['length'] && !$['isEmptyObject'](ITowns['towns'])) {
-        clearInterval(_0x88b7x43);
+        clearInterval(loadIntervalID);
         Autobot['initWindow']();
         Autobot['initMapTownFeature']();
         $['getScript'](Autobot['scriptDomain'] + 'Evaluate.js', function () {
@@ -733,7 +733,7 @@ var Autobot = {
         });
       } else {
         if (/grepolis\.com\/start\?nosession/g['test'](window['location']['href'])) {
-          clearInterval(_0x88b7x43);
+          clearInterval(loadIntervalID);
           $['getScript'](Autobot['scriptDomain'] + 'Evaluate.js', function () {
             $['when']($['getScript'](Autobot['scriptDomain'] + 'DataExchanger.js'), $['getScript'](Autobot['scriptDomain'] + 'Redirect.js'), $.Deferred(function (_0x88b7x44) { $(_0x88b7x44['resolve']) }))['done'](function () {
               Autobot['checkAutoRelogin']()
