@@ -1,5 +1,6 @@
 # GrepoBot
-Grepobot is an automated script that helps you do stuff in Grepolis automaticaly! This is full-feature version of [Grepobot](www.grepobot.com).
+Grepobot is an automated script that helps you do stuff in Grepolis automaticaly! Has tone of features and makes your life a lot easier. 
+This is full-feature version of [Grepobot](www.grepobot.com).
 
 ## Features
 #### Account overview
