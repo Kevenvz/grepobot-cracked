@@ -1,8 +1,8 @@
 var Autobot = {
   title: 'GrepoBot',
-  version: '4.1',
+  version: '4.3',
   domain: window['location']['protocol'] + '//bot.grepobot.com/',
-  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v4.1/',
+  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v4.3/',
   botWnd: '',
   botPremWnd: '',
   botEmailWnd: '',
@@ -174,94 +174,7 @@ var Autobot = {
   },
 
   contentSupport: function () {
-    return $('<fieldset/>', {
-      "id": 'Support_tab',
-      "style": 'float:left; width:472px;height: 270px;'
-    })['append']($('<legend/>')['html']('Grepobot Support'))['append']($('<div/>', {
-      style: 'float: left;'
-    })['append'](FormBuilder['selectBox']({
-      id: 'support_type',
-      name: 'support_type',
-      label: 'Type: ',
-      styles: 'width: 167px;margin-left: 18px;',
-      value: 'Bug report',
-      options: [{
-        value: 'Bug report',
-        name: 'Bug report'
-      }, {
-        value: 'Feature request',
-        name: 'Feature request'
-      }, {
-        value: 'Financial',
-        name: 'Financial'
-      }, {
-        value: 'Other',
-        name: 'Other'
-      }]
-    }))['append'](FormBuilder['input']({
-      id: 'support_input_email',
-      name: 'Email',
-      style: 'margin-left: 12px;width: 166px;',
-      value: '',
-      type: 'email'
-    }))['append'](FormBuilder['input']({
-      id: 'support_input_subject',
-      name: 'Subject',
-      style: 'margin-top: 0;width: 166px;',
-      value: '',
-      type: 'text'
-    }))['append'](FormBuilder['textarea']({
-      id: 'support_textarea',
-      name: 'Message',
-      value: ''
-    }))['append'](FormBuilder['button']({
-      name: 'Send',
-      style: 'margin-top: 0;'
-    })['on']('click', function () {
-      var _0x88b7x10 = $('#Support_tab')['serializeObject']();
-      var _0x88b7x11 = false;
-      if (typeof _0x88b7x10['support_input_email'] === 'undefined' || _0x88b7x10['support_input_email'] == '') {
-        _0x88b7x11 = 'Please enter your email.'
-      } else {
-        if (typeof _0x88b7x10['support_input_subject'] === 'undefined' || _0x88b7x10['support_input_subject'] == '') {
-          _0x88b7x11 = 'Please enter a subject.'
-        } else {
-          if (typeof _0x88b7x10['support_textarea'] === 'undefined' || _0x88b7x10['support_textarea'] == '') {
-            _0x88b7x11 = 'Please enter a message.'
-          } else {
-            if (typeof _0x88b7x10['support_input_email'] !== 'undefined' && !/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/['test'](_0x88b7x10['support_input_email'])) {
-              _0x88b7x11 = 'Your email is not valid!'
-            }
-          }
-        }
-      };
-      if (_0x88b7x11) {
-        HumanMessage['error'](_0x88b7x11)
-      } else {
-        DataExchanger.Auth('supportEmail', $['extend']({
-          csrfToken: Autobot['Account']['csrfToken'],
-          player_name: Autobot['Account']['player_name'],
-          player_id: Autobot['Account']['player_id'],
-          world_id: Autobot['Account']['world_id']
-        }, _0x88b7x10), function (_0x88b7x9) {
-          if (_0x88b7x9['success']) {
-            if (typeof Autobot['botWnd'] != 'undefined') {
-              try {
-                Autobot['botWnd']['close']()
-              } catch (F) { };
-              Autobot['botWnd'] = undefined
-            };
-            HumanMessage['success']('Thank you, your email has been send!')
-          }
-        })
-      }
-    })))['append']($('<div/>', {
-      style: 'float: right; width: 215px;'
-    })['append']($('<a/>', {
-      id: 'Facebook_grepobot',
-      target: '_blank',
-      href: 'https://www.facebook.com/BotForGrepolis/'
-    })['html']('<img src="https://bot.grepobot.com/images/facebook_page.png" title="Facebook Grepobot"/>')))
+    console.log("GrepoBot: Support Window would load.")
   },
 
   checkAlliance: function () {
