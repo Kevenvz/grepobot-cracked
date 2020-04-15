@@ -9,7 +9,7 @@
 // @exclude      view-source://*
 // @exclude      https://classic.grepolis.com/game/*
 
-// @version      v5.0
+// @version      v5.1
 // @grant        none
 
 // ==/UserScript==
@@ -20,8 +20,8 @@
     script.type = 'text/javascript';
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    script.src = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v5.0/GrepobotMinified.js';
-    link.href = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v5.0/Autobot.css';
+    script.src = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v5.1/GrepobotMinified.js';
+    link.href = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v5.1/Autobot.css';
     console.log(link.href);
     head.appendChild(script);
     head.appendChild(link);
