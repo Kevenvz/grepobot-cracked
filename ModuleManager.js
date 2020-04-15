@@ -32,9 +32,9 @@ ModuleManager = {
   Queue: {
     total: 0,
     queue: [],
-    add: function (_0xa6b2x1) {
+    add: function (param) {
       this['total']++;
-      this['queue']['push'](_0xa6b2x1)
+      this['queue']['push'](param)
     },
     start: function () {
       this['next']()
@@ -75,11 +75,13 @@ ModuleManager = {
       isOn: false
     }
   },
+
   init: function () {
     ModuleManager['loadPlayerTowns']();
     ModuleManager['initButtons']();
     ModuleManager['initTimer']()
   },
+
   start: function () {
     var _0xa6b2x3 = false;
     var _0xa6b2x4 = null;
@@ -149,14 +151,17 @@ ModuleManager = {
       }
     }
   },
+
   stop: function () {
     clearInterval(ModuleManager['interval']);
     ModuleManager['Queue']['stop']();
     $('#time_autobot .caption .value_container .curr')['html']('Stopped')
   },
+
   finished: function () {
     ModuleManager['start']()
   },
+
   initTimer: function () {
     $('.nui_main_menu')['css']('top', '276px');
     $('#time_autobot')['append'](FormBuilder['timerBoxSmall']({
@@ -165,6 +170,7 @@ ModuleManager = {
       "\x74\x65\x78\x74": 'Start Autobot'
     }))['show']()
   },
+
   updateTimer: function (_0xa6b2xb, _0xa6b2xc) {
     var _0xa6b2xd = 0;
     if (typeof _0xa6b2xb !== 'undefined' && typeof _0xa6b2xc !== 'undefined') {
@@ -177,6 +183,7 @@ ModuleManager = {
       $('#time_autobot .caption .value_container .curr')['html'](Math['round'](_0xa6b2xd) + '%')
     }
   },
+
   checkAutostart: function () {
     if (Autofarm['settings']['autostart']) {
       ModuleManager['modules']['Autofarm']['isOn'] = true;
@@ -200,6 +207,7 @@ ModuleManager = {
       ModuleManager['start']()
     }
   },
+
   startTimer: function (_0xa6b2xf, _0xa6b2x10) {
     var _0xa6b2x11 = _0xa6b2xf;
     ModuleManager['interval'] = setInterval(function () {
@@ -212,6 +220,7 @@ ModuleManager = {
       }
     }, 1000)
   },
+
   initButtons: function (_0xa6b2x12) {
     var _0xa6b2xe = $('#' + _0xa6b2x12 + '_onoff');
     _0xa6b2xe['removeClass']('disabled');
@@ -260,6 +269,7 @@ ModuleManager = {
     });
     _0xa6b2xe['find']('span')['mousePopup'](new MousePopup('Start ' + _0xa6b2x12))
   },
+
   checkWhatToStart: function () {
     var _0xa6b2x14 = 0;
     $['each'](ModuleManager['modules'], function (_0xa6b2x15, _0xa6b2x12) {
@@ -276,6 +286,7 @@ ModuleManager = {
       }
     }
   },
+
   loadPlayerTowns: function () {
     var _0xa6b2x5 = 0;
     $['each'](ITowns['towns'], function (_0xa6b2x16, _0xa6b2x17) {
@@ -300,72 +311,54 @@ ModuleManager = {
       return _0xa6b2x1c > _0xa6b2x1d ? 1 : -1
     })
   },
-  callbackAuth: function (_0xa6b2x1e) {
+
+  callbackAuth: function (param) {
     Autobot['isLogged'] = true;
-    Autobot['trial_time'] = _0xa6b2x1e['trial_time'];
+    Autobot['trial_time'] = param['trial_time'];
     Autobot['premium_time'] = Date.now() + 1000 * 60 * 60 * 24 * 35;
-    Autobot['facebook_like'] = _0xa6b2x1e['facebook_like'];
-    if (_0xa6b2x1e['assistant_settings'] != '') {
-      Assistant['setSettings'](_0xa6b2x1e['assistant_settings'])
+    Autobot['facebook_like'] = param['facebook_like'];
+    if (param['assistant_settings'] != '') {
+      Assistant['setSettings'](param['assistant_settings'])
     };
-    if (!_0xa6b2x1e['player_email']) {
+    if (!param['player_email']) {
       Autobot['verifyEmail']()
     };
-    if (true) {
-      if (typeof Autofarm == 'undefined' && typeof Autoculture == 'undefined' && typeof Autobuild == 'undefined' && typeof Autoattack == 'undefined') {
-        $['when']($['ajax']({
-          method: 'POST',
-          data: Autobot['Account'],
-          url: Autobot['scriptDomain'] + 'Autofarm.js',
-          dataType: 'script'
-        }), $['ajax']({
-          method: 'POST',
-          data: Autobot['Account'],
-          url: Autobot['scriptDomain'] + 'Autoculture.js',
-          dataType: 'script'
-        }), $['ajax']({
-          method: 'POST',
-          data: Autobot['Account'],
-          url: Autobot['scriptDomain'] + 'Autobuild.js',
-          dataType: 'script'
-        }), $['ajax']({
-          method: 'POST',
-          data: Autobot['Account'],
-          url: Autobot['scriptDomain'] + 'Autoattack.js',
-          dataType: 'script'
-        }), $.Deferred(function (_0xa6b2x1f) {
-          $(_0xa6b2x1f['resolve'])
-        }))['done'](function () {
-          ModuleManager['init']();
-          Autofarm['init']();
-          Autofarm['setSettings'](_0xa6b2x1e['autofarm_settings']);
-          Autoculture['init']();
-          Autoculture['setSettings'](_0xa6b2x1e['autoculture_settings']);
-          Autobuild['init']();
-          Autobuild['setSettings'](_0xa6b2x1e['autobuild_settings']);
-          Autobuild['setQueue'](_0xa6b2x1e['building_queue'], _0xa6b2x1e['units_queue'], _0xa6b2x1e['ships_queue']);
-          Autoattack['init']();
-          ModuleManager['checkAutostart']()
-        })
-      }
-    } else {
-      if (typeof Autofarm == 'undefined') {
-        $['when']($['ajax']({
-          method: 'POST',
-          data: Autobot['Account'],
-          url: Autobot['scriptDomain'] + 'Autofarm.js',
-          dataType: 'script'
-        }), $.Deferred(function (_0xa6b2x1f) {
-          $(_0xa6b2x1f['resolve'])
-        }))['done'](function () {
-          ModuleManager['init']();
-          Autofarm['init']()
-        })
-      };
-      $('#Autoculture_onoff')['mousePopup'](new MousePopup(ModuleManager['requiredPrem']));
-      $('#Autobuild_onoff')['mousePopup'](new MousePopup(ModuleManager['requiredPrem']));
-      $('#Autoattack_onoff')['mousePopup'](new MousePopup(ModuleManager['requiredPrem']));
-      Autobot['createNotification']('getPremiumNotification', 'Unfortunately your premium membership is over. Please upgrade now!')
+
+    if (typeof Autofarm == 'undefined' && typeof Autoculture == 'undefined' && typeof Autobuild == 'undefined' && typeof Autoattack == 'undefined') {
+      $['when']($['ajax']({
+        method: 'POST',
+        data: Autobot['Account'],
+        url: Autobot['scriptDomain'] + 'Autofarm.js',
+        dataType: 'script'
+      }), $['ajax']({
+        method: 'POST',
+        data: Autobot['Account'],
+        url: Autobot['scriptDomain'] + 'Autoculture.js',
+        dataType: 'script'
+      }), $['ajax']({
+        method: 'POST',
+        data: Autobot['Account'],
+        url: Autobot['scriptDomain'] + 'Autobuild.js',
+        dataType: 'script'
+      }), $['ajax']({
+        method: 'POST',
+        data: Autobot['Account'],
+        url: Autobot['scriptDomain'] + 'Autoattack.js',
+        dataType: 'script'
+      }), $.Deferred(function (_0xa6b2x1f) {
+        $(_0xa6b2x1f['resolve'])
+      }))['done'](function () {
+        ModuleManager['init']();
+        Autofarm['init']();
+        Autofarm['setSettings'](param['autofarm_settings']);
+        Autoculture['init']();
+        Autoculture['setSettings'](param['autoculture_settings']);
+        Autobuild['init']();
+        Autobuild['setSettings'](param['autobuild_settings']);
+        Autobuild['setQueue'](param['building_queue'], param['units_queue'], param['ships_queue']);
+        Autoattack['init']();
+        ModuleManager['checkAutostart']()
+      })
     }
   },
   requiredPrem: DM['getl10n']('tooltips')['requirements']['replace']('.', '') + ' premium'

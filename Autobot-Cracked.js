@@ -527,22 +527,22 @@ var Autobot = {
     return Math['floor'](Math['random']() * (_0x88b7x27 - _0x88b7x26 + 1)) + _0x88b7x26
   },
 
-  secondsToTime: function (_0x88b7x28) {
-    var _0x88b7x29 = Math['floor'](_0x88b7x28 / 86400);
-    var _0x88b7x2a = Math['floor']((_0x88b7x28 % 86400) / 3600);
-    var _0x88b7x2b = Math['floor'](((_0x88b7x28 % 86400) % 3600) / 60);
-    return (_0x88b7x29 ? _0x88b7x29 + ' days ' : '') + (_0x88b7x2a ? _0x88b7x2a + ' hours ' : '') + (_0x88b7x2b ? _0x88b7x2b + ' minutes ' : '')
+  secondsToTime: function (timeInSeconds) {
+    var days = Math['floor'](timeInSeconds / 86400);
+    var hours = Math['floor']((timeInSeconds % 86400) / 3600);
+    var mins = Math['floor'](((timeInSeconds % 86400) % 3600) / 60);
+    return (days ? days + ' days ' : '') + (hours ? hours + ' hours ' : '') + (mins ? mins + ' minutes ' : '')
   },
 
-  timeToSeconds: function (_0x88b7x2c) {
-    var _0x88b7x2d = _0x88b7x2c['split'](':'),
-      _0x88b7x1e = 0,
+  timeToSeconds: function (time) {
+    var _0x88b7x2d = time['split'](':'),
+      seconds = 0,
       _0x88b7x2e = 1;
     while (_0x88b7x2d['length'] > 0) {
-      _0x88b7x1e += _0x88b7x2e * parseInt(_0x88b7x2d['pop'](), 10);
+      seconds += _0x88b7x2e * parseInt(_0x88b7x2d['pop'](), 10);
       _0x88b7x2e *= 60
     };
-    return _0x88b7x1e
+    return seconds
   },
 
   arrowActivated: function () {
@@ -565,16 +565,16 @@ var Autobot = {
     _0x88b7x32['notify']($('#notification_area>.notification')['length'] + 1, _0x88b7x30, '<span><b>' + 'Autobot' + '</b></span>' + _0x88b7x31 + '<span class=\'small notification_date\'>' + 'Version ' + Autobot['version'] + '</span>')
   },
 
-  toHHMMSS: function (_0x88b7x33) {
-    var _0x88b7x34 = ~~(_0x88b7x33 / 3600);
-    var _0x88b7x35 = ~~((_0x88b7x33 % 3600) / 60);
-    var _0x88b7x36 = _0x88b7x33 % 60;
+  toHHMMSS: function (input) {
+    var hours = ~~(input / 3600);
+    var minutes = ~~((input % 3600) / 60);
+    var seconds = input % 60;
     ret = '';
-    if (_0x88b7x34 > 0) {
-      ret += '' + _0x88b7x34 + ':' + (_0x88b7x35 < 10 ? '0' : '')
+    if (hours > 0) {
+      ret += '' + hours + ':' + (minutes < 10 ? '0' : '')
     };
-    ret += '' + _0x88b7x35 + ':' + (_0x88b7x36 < 10 ? '0' : '');
-    ret += '' + _0x88b7x36;
+    ret += '' + minutes + ':' + (seconds < 10 ? '0' : '');
+    ret += '' + seconds;
     return ret
   },
 
