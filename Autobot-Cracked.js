@@ -1,8 +1,8 @@
 var Autobot = {
   title: 'GrepoBot',
-  version: '4.0',
+  version: '4.1',
   domain: window['location']['protocol'] + '//bot.grepobot.com/',
-  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v4.0/',
+  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v4.1/',
   botWnd: '',
   botPremWnd: '',
   botEmailWnd: '',
@@ -128,7 +128,7 @@ var Autobot = {
         return Autobot['contentAccount']()
       } else {
         if (param == 'Support') {
-          //return Autobot['contentSupport']()
+          console.log("GrepoBot: SupportBTN Clicked");
         } else {
           if (typeof window[param] != 'undefined') {
             return window[param]['contentSettings']()
@@ -394,100 +394,11 @@ var Autobot = {
   },
 
   botFacebookWnd: function () {
-    if (Autobot['isLogged'] && Autobot['facebook_like'] == 0) {
-      if (typeof Autobot['facebookWnd'] != 'undefined') {
-        try {
-          Autobot['facebookWnd']['close']()
-        } catch (F) { };
-        Autobot['facebookWnd'] = undefined
-      };
-      Autobot['facebookWnd'] = Layout['dialogWindow']['open']('', 'Autobot v' + Autobot['version'] + ' - Get 3 days free!', 275, 125, '', false);
-      Autobot['facebookWnd']['setHeight']([125]);
-      Autobot['facebookWnd']['setPosition'](['center', 'center']);
-      var _0x88b7x14 = $('<div/>', {
-        id: 'facebook_wnd'
-      })['append']('<span class="like-share-text">Like & share and get <b>3 days</b> free premium.</span><a href="#" class="fb-share"><span class="fb-text">Share</spanclass></a><div class="fb_like"><div class="fb-like" data-href="https://www.facebook.com/BotForGrepolis/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div></div>');
-      Autobot['facebookWnd']['setContent2'](_0x88b7x14);
-      $('.ui-dialog #facebook_wnd')['closest']('.gpwindow_content')['css']({
-        "left": '-9px',
-        "right": '-9px',
-        "top": '35px'
-      });
-      var _0x88b7x19 = false;
-      var _0x88b7x1a = false;
-      var _0x88b7x1b = function () {
-        if (_0x88b7x19 || _0x88b7x1a) {
-          Autobot['upgrade3Days']()
-        };
-        if (_0x88b7x19 && _0x88b7x1a) {
-          $.Observer(GameEvents['window']['quest']['open'])['publish']({
-            quest_type: 'hermes'
-          });
-          HumanMessage['success']('You have received 3 days premium! Thank you for sharing.');
-          if (typeof Autobot['facebookWnd'] != 'undefined') {
-            try {
-              Autobot['facebookWnd']['close']()
-            } catch (F) { };
-            Autobot['facebookWnd'] = undefined
-          };
-          if (typeof Autobot['botWnd'] != 'undefined') {
-            try {
-              Autobot['botWnd']['close']()
-            } catch (F) { };
-            Autobot['botWnd'] = undefined
-          }
-        }
-      };
-      if (window['fbAsyncInit'] == undefined) {
-        window['fbAsyncInit'] = function () {
-          FB['init']({
-            appId: '1505555803075328',
-            xfbml: true,
-            version: 'v2.4'
-          });
-          FB['Event']['subscribe']('edge.create', function (_0x88b7x1c) {
-            _0x88b7x1a = true;
-            _0x88b7x1b()
-          });
-          FB['Event']['subscribe']('edge.remove', function (_0x88b7x1c) {
-            _0x88b7x1a = false
-          })
-        }
-      };
-      if ($('#facebook-jssdk')['length'] <= 0) {
-        (function (_0x88b7x1d, _0x88b7x1e, _0x88b7x3) {
-          var _0x88b7x1f, _0x88b7x20 = _0x88b7x1d['getElementsByTagName'](_0x88b7x1e)[0];
-          if (_0x88b7x1d['getElementById'](_0x88b7x3)) {
-            return
-          };
-          _0x88b7x1f = _0x88b7x1d['createElement'](_0x88b7x1e);
-          _0x88b7x1f['id'] = _0x88b7x3;
-          _0x88b7x1f['src'] = '//connect.facebook.net/en_US/sdk.js';
-          _0x88b7x20['parentNode']['insertBefore'](_0x88b7x1f, _0x88b7x20)
-        }(document, 'script', 'facebook-jssdk'))
-      } else {
-        FB['XFBML']['parse']()
-      };
-      $('#facebook_wnd .fb-share')['on']('click', function () {
-        FB['ui']({
-          method: 'share',
-          href: 'https://www.facebook.com/BotForGrepolis/'
-        }, function (_0x88b7x1c) {
-          if (_0x88b7x1c && !_0x88b7x1c['error_code']) {
-            _0x88b7x19 = true;
-            _0x88b7x1b()
-          }
-        })
-      })
-    }
+    console.log("GrepoBot: Facebook Window would show");
   },
 
   upgrade3Days: function () {
-    DataExchanger.Auth('upgrade3Days', Autobot.Account, function (_0x88b7x9) {
-      if (_0x88b7x9['success']) {
-        DataExchanger.Auth('login', Autobot.Account, ModuleManager['callbackAuth'])
-      }
-    })
+    console.log("GrepoBot: 3day Upgrade called.");
   },
 
   initAjax: function () {
