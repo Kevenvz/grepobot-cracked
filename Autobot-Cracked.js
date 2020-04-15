@@ -146,8 +146,7 @@ var Autobot = {
       "Rank:": Game['player_rank'],
       "Towns:": Game['player_villages'],
       "Language:": Game['locale_lang'],
-      "Premium: ": '[ C R A C K E D ]'
-      //"Trial:": '.................'
+      "Premium: ": '[ CRACKED ]'
     };
     var _0x88b7xa = $('<table/>', {
       "class": 'game_table layout_main_sprite',
