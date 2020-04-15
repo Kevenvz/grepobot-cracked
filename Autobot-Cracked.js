@@ -145,8 +145,8 @@ var Autobot = {
       "Rank:": Game['player_rank'],
       "Towns:": Game['player_villages'],
       "Language:": Game['locale_lang'],
-      "Premium: ": (Autobot['premium_time'] - Timestamp['now']()) >= 0 ? Autobot['secondsToTime'](Autobot['premium_time'] - Timestamp['now']()) + '<span id="get_premium" class="open_premium_icon" onclick="Autobot.getPremium();"></span>' : 'No premium' + '<span id="get_premium" class="open_premium_icon" onclick="Autobot.getPremium();"></span>',
-      "Trial:": ((Autobot['trial_time'] - Timestamp['now']()) >= 0 ? Autobot['secondsToTime'](Autobot['trial_time'] - Timestamp['now']()) : 'Trial is over') + (Autobot['facebook_like'] == 0 ? '<a href="#" id="get_7days" onclick="Autobot.botFacebookWnd();">Get 3 free days!</a>' : '')
+      "Premium: ": 'Fukin Cracked',
+      "Trial:": 'No need...'
     };
     var _0x88b7xa = $('<table/>', {
       "class": 'game_table layout_main_sprite',
@@ -627,8 +627,8 @@ var Autobot = {
     return _0x88b7x3b
   },
 
-  checkPremium: function (_0x88b7x3e) {
-    return $('.advisor_frame.' + _0x88b7x3e + ' div')['hasClass'](_0x88b7x3e + '_active')
+  checkPremium: function (param) {
+    return $('.advisor_frame.' + param + ' div')['hasClass'](param + '_active')
   },
 
   initWindow: function () {
