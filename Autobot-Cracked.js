@@ -1,5 +1,5 @@
 var Autobot = {
-  title: 'Autobot',
+  title: 'GrepoBot',
   version: '4.0',
   domain: window['location']['protocol'] + '//bot.grepobot.com/',
   scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@2.1/',
@@ -119,18 +119,18 @@ var Autobot = {
     }))
   },
 
-  getContent: function (_0x88b7x8) {
-    if (_0x88b7x8 == 'Console') {
+  getContent: function (param) {
+    if (param == 'Console') {
       return ConsoleLog['contentConsole']()
     } else {
-      if (_0x88b7x8 == 'Account') {
+      if (param == 'Account') {
         return Autobot['contentAccount']()
       } else {
-        if (_0x88b7x8 == 'Support') {
-          return Autobot['contentSupport']()
+        if (param == 'Support') {
+          //return Autobot['contentSupport']()
         } else {
-          if (typeof window[_0x88b7x8] != 'undefined') {
-            return window[_0x88b7x8]['contentSettings']()
+          if (typeof window[param] != 'undefined') {
+            return window[param]['contentSettings']()
           };
           return ''
         }

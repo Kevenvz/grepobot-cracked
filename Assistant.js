@@ -2,19 +2,19 @@ Assistant = {
     settings: {
         town_names: false,
         player_name: false,
-        alliance_name: true,
+        alliance_name: false,
         auto_relogin: 0
     },
-    init: function() {
+    init: function () {
         ConsoleLog.Log('Initialize Assistant', 0)
     },
-    setSettings: function(_0x8bc3x1) {
+    setSettings: function (_0x8bc3x1) {
         if (_0x8bc3x1 != '' && _0x8bc3x1 != null) {
             $['extend'](Assistant['settings'], JSON['parse'](_0x8bc3x1))
         };
         Assistant['initSettings']()
     },
-    initSettings: function() {
+    initSettings: function () {
         if (Assistant['settings']['town_names']) {
             $('#map_towns .flag')['addClass']('active_town')
         } else {
@@ -31,7 +31,7 @@ Assistant = {
             $('#map_towns .flag')['removeClass']('active_alliance')
         }
     },
-    contentSettings: function() {
+    contentSettings: function () {
         return $('<fieldset/>', {
             "\x69\x64": 'Assistant_settings',
             "\x73\x74\x79\x6C\x65": 'float:left; width:472px;height: 270px;'
@@ -75,7 +75,7 @@ Assistant = {
         }))['append'](FormBuilder['button']({
             name: DM['getl10n']('notes')['btn_save'],
             style: 'top: 120px;'
-        })['on']('click', function() {
+        })['on']('click', function () {
             var _0x8bc3x2 = $('#Assistant_settings')['serializeObject']();
             Assistant['settings']['town_names'] = _0x8bc3x2['assistant_town_names'] != undefined;
             Assistant['settings']['player_name'] = _0x8bc3x2['assistant_player_names'] != undefined;
@@ -89,7 +89,7 @@ Assistant = {
             }, Assistant['callbackSave'])
         }))
     },
-    callbackSave: function() {
+    callbackSave: function () {
         HumanMessage['success']('The settings were saved!');
         Assistant['initSettings']()
     }
