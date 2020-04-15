@@ -1,8 +1,8 @@
 var Autobot = {
   title: 'GrepoBot',
-  version: '4.3',
+  version: '5.0',
   domain: window['location']['protocol'] + '//bot.grepobot.com/',
-  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v4.3/',
+  scriptDomain: window['location']['protocol'] + '//cdn.jsdelivr.net/gh/xadam1/grepobot-cracked@v5.0/',
   botWnd: '',
   botPremWnd: '',
   botEmailWnd: '',
