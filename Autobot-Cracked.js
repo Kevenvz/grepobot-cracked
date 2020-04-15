@@ -39,8 +39,6 @@ var Autobot = {
 
   authenticate: function () {
     DataExchanger.Auth('login', Autobot.Account, function (accData) {
-      //accData.premium_time = Date.now() + 1000 * 60 * 60 * 24 * 35;
-      //accData.trial_time = Date.now() + 1000*60*60*24*365;
       ModuleManager['callbackAuth'](accData);
     });
   },
@@ -76,7 +74,10 @@ var Autobot = {
         "style": 'left: 78px; right: 14px'
       })['append']($('<ul/>', {
         "class": 'menu_inner'
-      })['prepend'](Autobot['addMenuItem']('AUTHORIZE', 'Account', 'Account'))['prepend'](Autobot['addMenuItem']('CONSOLE', 'Assistant', 'Assistant'))['prepend'](Autobot['addMenuItem']('ASSISTANT', 'Console', 'Console'))['prepend'](Autobot['addMenuItem']('SUPPORT', 'Support', 'Support'))));
+      })['prepend']
+        (Autobot['addMenuItem']('AUTHORIZE', 'Account', 'Account'))
+      ['prepend'](Autobot['addMenuItem']('CONSOLE', 'Assistant', 'Assistant'))
+      ['prepend'](Autobot['addMenuItem']('ASSISTANT', 'Console', 'Console'))));
       if (typeof Autoattack !== 'undefined') {
         _0x88b7x2['find']('.menu_inner li:last-child')['before'](Autobot['addMenuItem']('ATTACKMODULE', 'Attack', 'Autoattack'))
       };
