@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name			Grepobot - Bot for Grepolis
+// @name			Gsaddsabot - Bot for Grepolis
 // @namespace		Grepobot - Bot for Grepolis
 // @description		Grepobot is a automated script that helps you do stuff in Grepolis automaticaly! One of the best Grepolis bots out there.
 // @autor			Grepobot
@@ -14,9 +14,9 @@
     script.type = 'text/javascript';
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    //script.src = location.protocol+'//bot.grepobot.com/Autobot.js?_=' + Math.random();
-    script.src = location.protocol + '//cdn.jsdelivr.net/gh/rubensei/grepobot-cracked@2.0/Autobot-Cracked.js';
-    link.href = location.protocol + '//bot.grepobot.com/Autobot.css?_=' + Math.random();
+    script.src = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v4.3/Autobot-Cracked.js';
+    link.href = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBot@v4.3/Autobot.css';
+    console.log(link.href);
     head.appendChild(script);
     head.appendChild(link);
     head.setAttribute('xhttps', 1);
