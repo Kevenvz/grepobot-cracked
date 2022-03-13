@@ -20,7 +20,7 @@
     script.type = 'text/javascript';
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    script.src = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBotExtension@master/GrepobotMinified.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBotExtension@master/GrepoBotMinified.js';
     link.href = 'https://cdn.jsdelivr.net/gh/xadam1/GrepoBotExtension@master/Autobot.css';
     head.appendChild(script);
     head.appendChild(link);
