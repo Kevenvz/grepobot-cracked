@@ -1,3 +1,7 @@
+# New Version of GrepoBot
+First of, go ahead and check out our new project on www.grepobot.net
+New improved look, dedidcated executable, automatic farming, building, attacks... And MUCH MORE! 🖤
+
 # GrepoBot
 Grepobot is an automated script that helps you do stuff in Grepolis automaticaly! Has tone of features and makes your life a lot easier. 
 This is full-feature version of [Grepobot](www.grepobot.com).
